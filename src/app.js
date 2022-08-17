@@ -8,6 +8,7 @@ require('dotenv').config();
 
 const router = require('./routers');
 
+console.log(router);
 const {
   handleClientErrors,
   handleServerErrors,
@@ -23,6 +24,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, '..', 'public')));
 app.use(router.countries);
 app.use(router.currentLocation);
+app.use(router.serachRouter);
 
 app.use(handleClientErrors);
 app.use(handleServerErrors);
