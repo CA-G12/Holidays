@@ -15,7 +15,7 @@ const {
 } = require('./controllers/errors');
 
 const app = express();
-app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.PORT || 5000);
 app.use(helmet());
 app.use(compression());
 app.use(express.json());
@@ -31,3 +31,6 @@ app.use(handleServerErrors);
 app.listen(app.get('port'), () => {
   console.log(`App running at http://localhost:${app.get('port')}`);
 });
+
+
+module.exports = app
