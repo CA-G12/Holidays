@@ -1,8 +1,17 @@
+// import fetch from 'node-fetch';
+
 const express = require('express');
 const path = require('path');
 const compression = require('compression');
 const helmet = require('helmet');
-const { handleClientErrors, handleServerErrors } = require('./controllers/errors');
+require('dotenv').config();
+
+const router = require('./routers');
+
+const {
+  handleClientErrors,
+  handleServerErrors,
+} = require('./controllers/errors');
 
 const app = express();
 app.set('port', process.env.PORT || 5000);
@@ -12,6 +21,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.use(express.static(path.join(__dirname, '..', 'public')));
+app.use(router.countries);
+app.use(router.currentLocation);
+
 app.use(handleClientErrors);
 app.use(handleServerErrors);
 app.listen(app.get('port'), () => {
