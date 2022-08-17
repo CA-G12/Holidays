@@ -27,13 +27,16 @@ function createTableElement(element, parent, content, value) {
 console.log('hello from dom');
 fetch('/countries')
   .then((res) => res.json())
-  .then(
-    (res) => {
-      for (let i = 0; i < res.countries.length; i++) {
-        createTableElement('option', select, res.countries[i].name, res.countries[i].code);
-      }
-    },
-  )
+  .then((res) => {
+    for (let i = 0; i < res.countries.length; i++) {
+      createTableElement(
+        'option',
+        select,
+        res.countries[i].name,
+        res.countries[i].code
+      );
+    }
+  })
 
   .catch(console.error);
 
@@ -44,4 +47,14 @@ fetch('/currentLocation')
     country.textContent = res;
   })
   .catch(console.error);
- 
+
+const dayVal = document.querySelector('#day');
+const monthVal = document.querySelector('#month');
+const yearVal = document.querySelector('#year');
+const countryVal = document.querySelector('#country');
+console.log(dayVal.value, monthVal.value, yearVal.value, countryVal.value);
+// const searchURL = `/search/${lat},${lon}`;
+// fetch(searchURL)
+//   .then((res) => res.json())
+//   .then((res) => console.log(res, 'christmassss'))
+//   .catch(console.error);
