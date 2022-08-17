@@ -27,16 +27,11 @@
       </nav>
       <div class="container">
         <div class="search">
-          <input id="day" type="number" min="1" max="31" placeholder="Day" />
+          <input id="date" type="number" min="1" max="31" placeholder="Day" />
+          <input id="date" type="number" min="1" max="12" placeholder="Month" />
+
           <input
-            id="month"
-            type="number"
-            min="1"
-            max="12"
-            placeholder="Month"
-          />
-          <input
-            id="year"
+            id="date"
             type="number"
             min="1980"
             max="2022"
@@ -45,7 +40,9 @@
         </div>
         <div class="search-input">
           <select name="" id="input">
-            <option value="Country" disabled selected>Country</option>
+            <option id="country" value="country" disabled selected
+              >Country</option
+            >
           </select>
           <i class="fa-solid fa-magnifying-glass"></i>
         </div>
