@@ -12,6 +12,12 @@ day.value = dayValue;
 month.value = monthValue;
 year.value = yearValue;
 
+const clearingSection = (section) => {
+  while (section.firstElementChild) {
+    section.firstChild.remove();
+  }
+};
+
 function createTableElement(element, parent, content, value) {
   const childEle = document.createElement(`${element}`);
   childEle.textContent = content;
@@ -21,40 +27,58 @@ function createTableElement(element, parent, content, value) {
   parent.appendChild(childEle);
   return childEle;
 }
-// For example
-// let parent = createTableElement("tr", tbody)
-// createTableElement("td", parent, "testtt")
-console.log('hello from dom');
+// Getting array of countries
 fetch('/countries')
   .then((res) => res.json())
   .then((res) => {
-    for (let i = 0; i < res.countries.length; i++) {
-      createTableElement(
-        'option',
-        select,
-        res.countries[i].name,
-        res.countries[i].code
-      );
+    for (let i = 0; i < res.length; i++) {
+      createTableElement('option', select, res[i].name, res[i].code);
     }
   })
-
   .catch(console.error);
 
+// Getting the visitor current location
 fetch('/currentLocation')
   .then((res) => res.json())
   .then((res) => {
-    console.log(res, 'locationnnnnn');
     country.textContent = res;
   })
   .catch(console.error);
 
-const dayVal = document.querySelector('#day');
-const monthVal = document.querySelector('#month');
-const yearVal = document.querySelector('#year');
-const countryVal = document.querySelector('#country');
-console.log(dayVal.value, monthVal.value, yearVal.value, countryVal.value);
-// const searchURL = `/search/${lat},${lon}`;
-// fetch(searchURL)
-//   .then((res) => res.json())
-//   .then((res) => console.log(res, 'christmassss'))
-//   .catch(console.error);
+// Automatically display the holidays today in your current location
+let searchURL = `/search?country=${select.value}&year=${year.value}&month=${month.value}&day=${day.value}`;
+fetch(searchURL)
+  .then((res) => res.json())
+  .then((res) => {
+    clearingSection(tbody);
+    res.forEach((holiday) => {
+      const parent = createTableElement('tr', tbody);
+      createTableElement('td', parent, holiday.location);
+      createTableElement('td', parent, holiday.date);
+      createTableElement('td', parent, holiday.week_day);
+      createTableElement('td', parent, holiday.name);
+      createTableElement('td', parent, holiday.type);
+    });
+  })
+  .catch(console.error);
+
+// display the holidays on the selected date and location
+[day, month, year, select].forEach((el) => {
+  el.addEventListener('change', () => {
+    searchURL = `/search?country=${select.value}&year=${year.value}&month=${month.value}&day=${day.value}`;
+    fetch(searchURL)
+      .then((res) => res.json())
+      .then((res) => {
+        clearingSection(tbody);
+        res.forEach((holiday) => {
+          const parent = createTableElement('tr', tbody);
+          createTableElement('td', parent, holiday.location);
+          createTableElement('td', parent, holiday.date);
+          createTableElement('td', parent, holiday.week_day);
+          createTableElement('td', parent, holiday.name);
+          createTableElement('td', parent, holiday.type);
+        });
+      })
+      .catch(console.error);
+  });
+});
