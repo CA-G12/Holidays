@@ -1,5 +1,3 @@
-// import fetch from 'node-fetch';
-
 const express = require('express');
 const path = require('path');
 const compression = require('compression');
@@ -8,7 +6,6 @@ require('dotenv').config();
 
 const router = require('./routers');
 
-console.log(router);
 const {
   handleClientErrors,
   handleServerErrors,

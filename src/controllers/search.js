@@ -1,12 +1,10 @@
 const fetch = require('node-fetch');
 
 const search = (req, res) => {
-  const { params } = req;
-  console.log(params);
-  const holidaysURL = `https://holidays.abstractapi.com/v1/?api_key=${process.env.HOLIDAYS_API_KEY}&country=US&year=2015&month=12&day=25`;
+  console.log(req.query, 'queryyyyy');
+  const holidaysURL = `https://holidays.abstractapi.com/v1/?api_key=${process.env.HOLIDAYS_API_KEY}&country=${req.query.country}&year=${req.query.year}&month=${req.query.month}&day=${req.query.day}`;
   //  return
-  console.log(process.env.HOLIDAYS_API_KEY);
-  fetch(holidaysURL)
+  return fetch(holidaysURL)
     .then((data) => data.json())
     .then((data) => {
       res.json(data);
