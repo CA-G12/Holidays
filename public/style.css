@@ -1,0 +1,190 @@
+@import url('https://fonts.googleapis.com/css2?family=Arbutus&family=Arbutus+Slab&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --red: #bd2424;
+  --blue: #24abbd;
+  --white: #eeeeee;
+  --black: #111111;
+}
+
+html {
+  font-size: 10px;
+  font-family: 'DynaPuff', cursive, Helvetica, Arial, sans-serif;
+}
+body {
+  height: 100vh;
+  background-image: url('./img/background.png');
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+}
+.header {
+  margin-bottom: 5rem;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 5rem 0;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 10vh;
+}
+
+.navbar-logo h1 {
+  color: white;
+  font-weight: 700;
+  font-size: 5rem;
+  text-align: center;
+  letter-spacing: 3px;
+  padding: 1rem;
+  text-shadow: 0px 4px 4px var(--black);
+  user-select: none;
+}
+
+.navbar-items {
+  display: flex;
+}
+
+.navbar-items a {
+  text-decoration: none;
+  color: white;
+  padding: 1rem 3rem;
+  font-size: 2.5rem;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.navbar-items a:hover {
+  color: black;
+}
+
+header .search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+  margin: 2rem auto;
+  color: black;
+  position: relative;
+}
+
+header .search input,
+header .search-input select {
+  all: unset;
+  width: 100%;
+  background: white;
+  margin: 1rem;
+  border-radius: 2.5rem;
+  padding: 1rem 2rem;
+  outline: 1px solid var(--white);
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+header .search-input i {
+  position: absolute;
+  color: black;
+  top: 50%;
+  right: 2.3rem;
+  font-size: 2rem;
+  transform: translateY(-50%);
+}
+header .search-input {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+  margin: 2rem auto;
+  color: black;
+}
+/* *************************************** Table ********************************* */
+main {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+}
+
+th,
+td {
+  padding: 5px;
+  text-align: left;
+  text-align: center;
+}
+
+td:nth-child(1),
+th:nth-child(1) {
+  font-size: 2rem;
+  height: 8rem;
+  min-width: 40rem;
+}
+td:nth-child(2),
+th:nth-child(2) {
+  font-size: 2rem;
+  height: 8rem;
+  min-width: 40rem;
+}
+td:nth-child(3),
+th:nth-child(3) {
+  font-size: 2rem;
+  height: 8rem;
+  min-width: 40rem;
+}
+td:nth-child(4),
+th:nth-child(4) {
+  font-size: 2rem;
+  height: 8rem;
+  min-width: 40rem;
+}
+td:nth-child(5),
+th:nth-child(5) {
+  font-size: 2rem;
+  height: 8rem;
+  min-width: 40rem;
+}
+
+thead tr {
+  display: block;
+  position: relative;
+  background-color: #333;
+}
+tbody {
+  display: block;
+  overflow: auto;
+  width: 100%;
+  height: 30rem;
+}
+th {
+  background-color: #333;
+  color: #fdfdfd;
+}
+tr:nth-child(even) {
+  background-color: #ddd;
+}
+tr:nth-child(odd) {
+  background-color: white;
+}
+
+.old_ie_wrapper {
+  height: 30rem;
+  width: 75rem;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+tbody {
+  height: auto;
+}
