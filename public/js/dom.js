@@ -44,3 +44,4 @@ fetch('/currentLocation')
     country.textContent = res;
   })
   .catch(console.error);
+ 

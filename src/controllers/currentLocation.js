@@ -6,7 +6,6 @@ const getCurrentLocation = (req, res) => {
   return fetch(infoAPIurl)
     .then((data) => data.json())
     .then((data) => {
-      console.log(data.country, 44);
       res.json(data.country);
     })
     .catch((err) => console.log(err));
