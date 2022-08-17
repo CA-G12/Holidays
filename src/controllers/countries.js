@@ -5,8 +5,7 @@ const getCountries = (req, res) => {
   return fetch(conutriesAPIurl)
     .then((data) => data.json())
     .then((data) => {
-      console.log(data, 44);
-      res.json(data);
+      res.json(data.countries);
     })
     .catch((err) => console.log(err));
 };
