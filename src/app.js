@@ -28,3 +28,6 @@ app.use(handleServerErrors);
 app.listen(app.get('port'), () => {
   console.log(`App running at http://localhost:${app.get('port')}`);
 });
+
+
+module.exports = app
