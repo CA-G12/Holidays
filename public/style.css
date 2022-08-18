@@ -114,7 +114,7 @@ header .search-input {
 }
 /* *************************************** Table ********************************* */
 main {
-  display: flex !important;
+  /* display: flex !important; */
   justify-content: center;
   align-items: center;
 }
@@ -178,4 +178,14 @@ tr:nth-child(odd) {
 
 tbody {
   height: auto;
+}
+.noHoliday{
+  text-align: center;
+  font-size: 4rem;
+  color: #bd2424;
+  background-color: #ddd;
+  margin: 0 2rem;
+}
+#result{
+  display: block;
 }
