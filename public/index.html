@@ -45,16 +45,14 @@
         </div>
         <div class="search-input">
           <select name="" id="input">
-            <option id="country" value="PS" disabled selected></option>
-              Country
-            </option>
+            <option id="country" selected></option>
           </select>
           <i class="fa-solid fa-magnifying-glass"></i>
         </div>
       </div>
     </header>
     <main>
-      <table class="fixed_headers">
+      <table id="table">
         <thead>
           <tr>
             <th>Country</th>
@@ -66,6 +64,7 @@
         </thead>
         <tbody id="tbody"></tbody>
       </table>
+      <div id="result"></div>
     </main>
     <script src="./js/dom.js"></script>
   </body>
